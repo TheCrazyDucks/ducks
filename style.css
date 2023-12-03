@@ -1,0 +1,49 @@
+@import url('https://fonts.googleapis.com/css2?family=Caveat:wght@400;500;600;700&family=Fleur+De+Leah&family=Gabarito:wght@400;500;600;700;800;900&family=Gaegu:wght@400;700&family=Heebo:wght@400;500;600;700&family=Mr+Dafoe&family=Roboto:wght@400;500;700&family=Solitreo&family=Splash&family=Work+Sans:wght@500;600;700&display=swap');
+:root{
+	--p-color: #fff;
+}
+
+*{
+	/*
+	font-family: 'Fleur De Leah', cursive;
+	font-family: 'Gaegu', sans-serif;
+	font-family: 'Mr Dafoe', cursive;
+	font-family: 'Solitreo', cursive;
+	font-family: 'Splash', cursive;
+	*/
+	font-family: 'Caveat', cursive;
+	font-family: 'Work Sans', sans-serif;
+	font-family: 'Roboto', sans-serif;
+	font-family: 'Gabarito', sans-serif;
+}
+
+html, body{
+	width: 100vw;
+	height: 100vh;
+	overflow: hidden;
+	margin: 0;
+	padding: 0;
+	background: black;
+}
+
+.navigation-menu{
+	display: flex;
+}
+
+.navigation-menu > div {
+	padding: 1vw 1.5vw;
+	color: var(--p-color);
+	cursor: pointer;
+}
+
+.navigation-menu > div:hover{
+	opacity: 0.5;	
+}
+
+.content{
+	width: 100vw;
+	height: 100%;
+}
+
+@media only screen and (max-width: 320px) {
+}
