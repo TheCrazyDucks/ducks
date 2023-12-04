@@ -188,7 +188,7 @@ body {
 	background: rgb(17, 17, 17);
 } */
 
-div.featured-duck:hover {
+div.featured-duck:hover, div.featured-duck:active {
 	transform: translateY(-1vh);
 	opacity: 1;
 	filter: none;
@@ -217,7 +217,7 @@ div.featured-duck:hover div {
 	overflow: visible;
 	/* transform: rotate(5deg) skew(5deg); */
 	clip-path: url(#curved-skew);
-	background: linear-gradient(90deg, #111, #191919, #151515, #111);
+	background: linear-gradient(90deg, #000000, #111919, #151515, #111);
 	/* background: white; */
 	/* background: linear-gradient(90deg, #201, #200, #102);	 */
 	mix-blend-mode: multiply;
