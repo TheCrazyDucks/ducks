@@ -54,7 +54,7 @@ body {
 }
 
 .content {
-	background: #000;
+	background: #070707;
 	position: absolute;
 	z-index: 0;
 	top: calc(0.4rem + 0.5vw + 4vw);
@@ -72,13 +72,47 @@ body {
 	font-family: inherit;
 }
 
+#duck-def {
+	position: absolute;
+	/* top: 3vw;
+	left: 30vw;
+	width: 30vw;
+	height: fit-content;
+	 */
+	top: 6vh;
+	--w: 40vh;
+	left: calc(50vw - var(--w) / 2);
+	/* height: 20vh; */
+	height: fit-content;
+	width: var(--w);
+	opacity: 0.5;
+	filter: grayscale(10%);
+}
+
+#duck-def img {
+	width: 100%;
+	height: auto;
+}
+
+#duck-def::after {
+	position: absolute;
+	content: ' ';
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+	background: linear-gradient(transparent 20%, #000 70%);
+}
+
 .definition {
 	/* display: inline-block; */
 	position: relative;
+	/* mix-blend-mode: color-burn; */
+	background-color: #121212de;
 	width: 50vw;
 	padding: calc(1.5rem + 0.5vw) calc(2rem + 0.5vw);
 	border-radius: 0.5rem;
-	margin: 15% auto;
+	margin: 35vh auto 35vh auto;
 	/* border: 3px solid #222; */
 	/* background: #101010; */
 	/* box-shadow: -10px 10px 0vw #151515; */
@@ -133,7 +167,7 @@ body {
 	width: 80vw;
 }
 
-.featured-ducks{
+.featured-ducks {
 	position: relative;
 	display: flex;
 	justify-content: space-between;
@@ -141,6 +175,7 @@ body {
 	width: 80%;
 	margin: 0 auto;
 }
+
 /* 
 .featured-ducks::before{
 	content: ' ';
@@ -153,14 +188,14 @@ body {
 	background: rgb(17, 17, 17);
 } */
 
-div.featured-duck:hover{
+div.featured-duck:hover {
 	transform: translateY(-1vh);
 	opacity: 1;
 	filter: none;
 	filter: brightness(100%);
 }
 
-div.featured-duck:hover div{
+div.featured-duck:hover div {
 	opacity: 1;
 }
 
@@ -171,21 +206,24 @@ div.featured-duck:hover div{
 	transform: scale(1);
 }
 
-
-.skew-rect::before{
+.skew-rect::before {
 	content: ' ';
 	z-index: 0;
 	position: absolute;
-	top: 0;
+	top: -10%;
 	left: 0;
 	width: 100%;
-	height: 100%;
-	transform: rotate(5deg) skew(5deg);
-	background: linear-gradient(90deg, #111, #222);	
+	height: 110%;
+	overflow: visible;
+	/* transform: rotate(5deg) skew(5deg); */
+	clip-path: url(#curved-skew);
+	background: linear-gradient(90deg, #111, #191919, #151515, #111);
+	/* background: white; */
+	/* background: linear-gradient(90deg, #201, #200, #102);	 */
 	mix-blend-mode: multiply;
 }
 
-.featured-duck{
+.featured-duck {
 	position: relative;
 	border-radius: 0.5rem;
 	width: 28%;
@@ -197,8 +235,27 @@ div.featured-duck:hover div{
 	box-shadow: 0 4px 0vw #111;
 }
 
+.featured-duck::after {
+	position: absolute;
+	content: '.';
+	color: transparent;
+	padding: 2vw 2.75vw;
+	border-radius: 50%;
+	border: 1vw solid white;
+	mix-blend-mode: hard-light;
+	opacity: 0.7;
+	/* background: rgb(255, 255, 255); */
+	bottom: 5vw;
+	left: calc(50% - 4vw);
+	/* left: 1vw; */
+	font-size: 1.5vw;
+	/* clip-path: circle(2vw at 50% 50%); */
+	font-weight: bold;
+	z-index: 2;
+}
+
 .featured-duck img {
-	object-fit: cover; 
+	object-fit: cover;
 	width: 100%;
 	height: 100%;
 	border-radius: 0.5rem 0.5rem 0 0;
@@ -207,21 +264,59 @@ div.featured-duck:hover div{
 	margin: 0;
 }
 
-.featured-duck > div:nth-of-type(1){
+.featured-duck>div:nth-of-type(1) {
 	/* padding: 1vw; */
 	position: absolute;
 	bottom: 0;
 	width: 100%;
 	/* padding: 0.25vw 0.8vw; */
-	border-radius: 0 0 0.5rem 0.5rem;
+	/* border-radius: 0 0 0.5rem 0.5rem; */
+	/* border-radius: 0.5rem; */
 	font-size: calc(0.5rem + 0.7vw);
-	padding: 0.5vw 1vw 1vw 1vw;
-	margin: 1vw;
-	width: calc(100% - 4vw);
-	background: #000;
+	padding: 1vw 1vw;
+	text-align: center;
+	/* margin: 1vw; */
+	/* width: calc(100% - 4vw); */
+	mix-blend-mode: hard-light;
+	color: rgb(225, 225, 225);
+	background: #222;
 	opacity: 0;
 	transition: opacity 1s ease;
 }
+
+.floating-ducks {
+	display: flex;
+	flex-wrap: wrap;
+	width: 80%;
+	margin: 0 auto;
+}
+
+.floating-ducks img {
+	margin: 1.5vw;
+	border-radius: 0.5rem;
+	transform: skew(2deg);
+	height: 20vw;
+	filter: brightness(90%) grayscale(10%);
+	width: auto;
+}
+
+.duck-effect{
+	position: relative;
+	width: fit-content;
+	height: fit-content;
+}
+
+.duck-effect::after{
+	position: absolute;
+	content: ' ';
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+	/* background: white; */
+	background: linear-gradient(#00000050, #000);
+}
+
 @media only screen and (max-width: 600px) {
 	#home {
 		display: none;
